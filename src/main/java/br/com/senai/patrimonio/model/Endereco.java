@@ -1,5 +1,16 @@
 package br.com.senai.patrimonio.model;
-
+/**
+ * CONCEITO DE POO: ENCAPSULAMENTO + ABSTRACAO
+ * --------------------------------------------
+ * Os campos de endereco (rua, numero, complemento, bairro, cidade, estado)
+ * apareciam soltos dentro de Empresa. Agrupa-los em um objeto de valor
+ * (@Embeddable) encapsula a responsabilidade de "montar um endereco" em
+ * uma unica classe coesa, evitando duplicar esses 6 campos caso outra
+ * entidade precise de endereco no futuro.
+ * <p>
+ * Os atributos sao privados e só podem ser lidos/alterados atraves dos
+ * getters/setters (nenhuma classe externa acessa "rua" diretamente).
+ */
 public class Endereco {
     private String rua;
     private String numero;
