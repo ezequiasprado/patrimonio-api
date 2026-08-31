@@ -6,5 +6,5 @@ public enum Cargo {
     TECNICO,
     SUPERVISOR,
     GERENTE,
-    DIRETOR
+    DIRETOR,
 }
