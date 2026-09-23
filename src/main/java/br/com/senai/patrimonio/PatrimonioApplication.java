@@ -1,5 +1,7 @@
 package br.com.senai.patrimonio;
 
+import br.com.senai.patrimonio.avaliacao.Participante;
+import br.com.senai.patrimonio.avaliacao.enums.Nivel;
 import br.com.senai.patrimonio.model.Empresa;
 import br.com.senai.patrimonio.model.Endereco;
 import br.com.senai.patrimonio.model.Funcionario;
@@ -41,7 +43,9 @@ public class PatrimonioApplication {
 
 		System.out.println(funcionario.getCpf());
 
-
+		Participante participante = new Participante(
+			"João", "joao@gmail.com","04898745236",
+			"45678", Nivel.INICIANTE
+		);
 	}
-
 }
