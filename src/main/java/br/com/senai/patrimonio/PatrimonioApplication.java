@@ -2,10 +2,7 @@ package br.com.senai.patrimonio;
 
 import br.com.senai.patrimonio.avaliacao.Participante;
 import br.com.senai.patrimonio.avaliacao.enums.Nivel;
-import br.com.senai.patrimonio.model.Empresa;
-import br.com.senai.patrimonio.model.Endereco;
-import br.com.senai.patrimonio.model.Funcionario;
-import br.com.senai.patrimonio.model.Sala;
+import br.com.senai.patrimonio.model.*;
 import br.com.senai.patrimonio.model.enums.Cargo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -47,5 +44,14 @@ public class PatrimonioApplication {
 			"João", "joao@gmail.com","04898745236",
 			"45678", Nivel.INICIANTE
 		);
+
+		Empresa empresaInterface = new Empresa();
+
+		Bloco blocoInterface = new Bloco(1L, "Bloco 2", empresaInterface);
+
+		Sala salaInterface = new Sala(2L, "Lab 2", "45678",
+				blocoInterface, empresaInterface);
+
+		System.out.println(salaInterface.getDescricaoLocalizavel());
 	}
 }
