@@ -5,7 +5,7 @@ import br.com.senai.patrimonio.model.enums.EstadoConservacao;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-public class Patrimonio {
+public class Patrimonio implements BuscarConservacao{
     private Long id;
     private Bem bem;
     private Sala sala;
@@ -106,4 +106,9 @@ public class Patrimonio {
     public void setValor(BigDecimal valor) {
         this.valor = valor;
     }
+
+   @Override
+    public String validarEstadoConservacao() {
+        return estado != null ? estado.toString() :"SEM ESTADO DE CONSERVAÇÃO";
+   }
 }

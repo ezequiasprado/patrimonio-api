@@ -4,6 +4,7 @@ import br.com.senai.patrimonio.avaliacao.Participante;
 import br.com.senai.patrimonio.avaliacao.enums.Nivel;
 import br.com.senai.patrimonio.model.*;
 import br.com.senai.patrimonio.model.enums.Cargo;
+import br.com.senai.patrimonio.model.enums.EstadoConservacao;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -53,5 +54,12 @@ public class PatrimonioApplication {
 				blocoInterface, empresaInterface);
 
 		System.out.println(salaInterface.getDescricaoLocalizavel());
+
+
+		Patrimonio patrimonio = new Patrimonio();
+		System.out.println(patrimonio.validarEstadoConservacao());
+
+		patrimonio.setEstado(EstadoConservacao.INSERVIVEL);
+		System.out.println(patrimonio.validarEstadoConservacao());
 	}
 }
