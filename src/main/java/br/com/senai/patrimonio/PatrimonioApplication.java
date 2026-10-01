@@ -61,5 +61,50 @@ public class PatrimonioApplication {
 
 		patrimonio.setEstado(EstadoConservacao.INSERVIVEL);
 		System.out.println(patrimonio.validarEstadoConservacao());
+
+		Bem bem = new Bem();
+		System.out.println(bem.getEmpresaVinculada());
+
+		Empresa empresa1 = new Empresa();
+		bem.setEmpresa(empresa1);
+		System.out.println(bem.getEmpresaVinculada());
+
+		empresa1.setNome("Senai");
+		System.out.println(bem.getEmpresaVinculada());
+
+		System.out.println("Teste do Bloco:");
+		Bloco bloco = new Bloco();
+		System.out.println(bloco.getEmpresaVinculada());
+
+		bloco.setEmpresa(empresa1);
+		System.out.println(bloco.getEmpresaVinculada());
+
+		System.out.println("Teste de funcionário");
+		Funcionario funcionario1 = new Funcionario();
+		System.out.println(funcionario1.getEmpresaVinculada());
+
+		funcionario1.setEmpresa(empresa1);
+		System.out.println(funcionario1.getEmpresaVinculada());
+
+		System.out.println("Teste de Sala");
+		Sala sala1 = new Sala();
+		System.out.println(sala1.getEmpresaVinculada());
+
+		sala1.setEmpresa(empresa1);
+		System.out.println(sala1.getEmpresaVinculada());
+
+		Pessoa pessoa = new Pessoa();
+
+		pessoa.setNome("Joãozinho");
+		pessoa.setCpf("45787878");
+		System.out.println(pessoa.getIdentificacao());
+
+		funcionario1.setNome("Mariazinha");
+		funcionario1.setCpf("12345678");
+		funcionario1.setCargo(Cargo.DIRETOR);
+		System.out.println(funcionario1.getIdentificacao());
+
+
+
 	}
 }
