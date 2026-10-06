@@ -1,5 +1,8 @@
 package br.com.senai.patrimonio;
 
+import br.com.senai.patrimonio.atividades.Computador;
+import br.com.senai.patrimonio.atividades.Equipamento;
+import br.com.senai.patrimonio.atividades.Veiculo;
 import br.com.senai.patrimonio.avaliacao.Participante;
 import br.com.senai.patrimonio.avaliacao.enums.Nivel;
 import br.com.senai.patrimonio.model.*;
@@ -104,7 +107,19 @@ public class PatrimonioApplication {
 		funcionario1.setCargo(Cargo.DIRETOR);
 		System.out.println(funcionario1.getIdentificacao());
 
+		Equipamento equipamento = new Equipamento("Mesa", 800.00);
+		Equipamento computador = new Computador("Notebook", 5000.00);
+		Equipamento veiculo = new Veiculo("Fusca", 98000.00);
 
+		exibirRelatorio(equipamento);
+		exibirRelatorio(computador);
+		exibirRelatorio(veiculo);
+	}
 
+	public static void exibirRelatorio(Equipamento item) {
+		System.out.println("Item: " + item.getNome());
+		System.out.println("Valor inicial: " + item.getValorInicial());
+		System.out.println("Depreciação: " + item.calcularDepreciacao());
+		System.out.println("---------------------------------------------------");
 	}
 }

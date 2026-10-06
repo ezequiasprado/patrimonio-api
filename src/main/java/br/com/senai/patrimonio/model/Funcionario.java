@@ -57,6 +57,7 @@ public class Funcionario extends Pessoa implements Localizavel, BuscarEmpresaVin
                 "Empresa não informada";
     }
 
+
     /**
      * CONCEITO DE POO: POLIMORFISMO (sobrescrita / @Override)
      * --------------------------------------------------------
