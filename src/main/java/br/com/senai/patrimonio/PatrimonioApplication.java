@@ -1,11 +1,10 @@
 package br.com.senai.patrimonio;
 
-import br.com.senai.patrimonio.atividades.Computador;
-import br.com.senai.patrimonio.atividades.Equipamento;
-import br.com.senai.patrimonio.atividades.Veiculo;
+import br.com.senai.patrimonio.atividades.*;
 import br.com.senai.patrimonio.avaliacao.Participante;
 import br.com.senai.patrimonio.avaliacao.enums.Nivel;
 import br.com.senai.patrimonio.model.*;
+import br.com.senai.patrimonio.model.Funcionario;
 import br.com.senai.patrimonio.model.enums.Cargo;
 import br.com.senai.patrimonio.model.enums.EstadoConservacao;
 import org.springframework.boot.SpringApplication;
@@ -114,6 +113,21 @@ public class PatrimonioApplication {
 		exibirRelatorio(equipamento);
 		exibirRelatorio(computador);
 		exibirRelatorio(veiculo);
+
+
+		/************TESTE DE FUNCIONÁRIO COM POLIMORFISMO*************/
+		br.com.senai.patrimonio.atividades.Funcionario funcionario2 =
+				new br.com.senai.patrimonio.atividades.Funcionario("João", 5000.00);
+
+		br.com.senai.patrimonio.atividades.Funcionario gerente =
+				new Gerente("Maathey", 50000.00);
+
+		br.com.senai.patrimonio.atividades.Funcionario desenvolvedor =
+				new Desenvolvedor("Andrei", 15000.00);
+
+		imprimirContraCheque(funcionario2);
+		imprimirContraCheque(gerente);
+		imprimirContraCheque(desenvolvedor);
 	}
 
 	public static void exibirRelatorio(Equipamento item) {
@@ -121,5 +135,18 @@ public class PatrimonioApplication {
 		System.out.println("Valor inicial: " + item.getValorInicial());
 		System.out.println("Depreciação: " + item.calcularDepreciacao());
 		System.out.println("---------------------------------------------------");
+	}
+
+	// Método auxiliar que demonstra o polimorfismo
+	public static void imprimirContraCheque(br.com.senai.patrimonio.atividades.Funcionario funcionario) {
+		System.out.println("Funcionário: " + funcionario.getNome());
+		System.out.println("Salário Base: R$ " + funcionario.getSalarioBase());
+
+		System.out.println(funcionario.calcularBonificacao());
+
+		System.out.println(funcionario.getSalarioBase() +
+				funcionario.calcularBonificacao());
+
+		System.out.println("-------------------------------------------");
 	}
 }
